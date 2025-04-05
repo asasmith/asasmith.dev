@@ -1,0 +1,103 @@
+---
+date: "1/8/2022"
+tags: ["javascript", "ember js", "tailwind css"]
+title: Using Tailwind CSS v3 with Ember JS
+---
+
+Tailwind CSS v3 has been released and there is a bunch of cool new features available (I'm mostly interested in the "just in time" engine being standard now). The standard setup for an ember project has changed a little and there doesn't seem to be a lot of good resources available for this setup.
+
+Create a new ember project.
+
+```bash
+npx ember-cli new tailwindcss-demo --no-welcome
+cd tailwindcss-demo
+```
+
+Install tailwind and related packages.
+
+```bash
+npm install tailwindcss autoprefixer --save-dev // no need for purgecss anymore
+```
+
+Install postcss add on.
+
+```bash
+ember install ember-cli-postcss
+```
+
+Create tailwind config.
+
+```bash
+// I create a tailwind dir in styles and add the config file there
+// this is a personal organizational choice, the config file could live anywhere
+mkdir app/styles/tailwind
+
+// create tailwind config file
+// last arg is path to config file, if no arg is provided it will be created at the root of your project
+// this will be needed in the next step
+npx tailwind init app/styles/tailwind/config.js
+```
+
+There isn't a `purge` key in the config file anymore. Update the `content` key with paths to all template files. The config docs are [here](https://tailwindcss.com/docs/content-configuration)
+
+```javascript
+// app/styles/tailwind/config.js
+
+module.exports = {
+  content: ['./app/**/*.hbs'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+Update `app/styles/app.css`
+
+```css
+/* app/styles/app.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+Update `ember-build-cli.js`
+
+```javascript
+// ember-build-cli.js
+
+'use strict';
+
+const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const autoprefixer = require('autoprefixer');
+const tailwind = require('tailwindcss');
+
+module.exports = function (defaults) {
+  let app = new EmberApp(defaults, {
+    postcssOptions: {
+      compile: {
+        // track changes in template, css, scss, and tailwind config files
+        cacheInclude: [/.*\.(css|scss|hbs)$/, /.tailwind\/config\.js$/],
+        plugins: [
+          {
+            module: autoprefixer,
+            options: {},
+          },
+          {
+            module: tailwind,
+            options: {
+              config: './app/styles/tailwind/config.js',
+            },
+          },
+        ],
+      },
+    },
+  });
+
+  return app.toTree();
+};
+```
+That's it. You should be up and running with Ember and Tailwind now!
+
+[Repo](https://github.com/asasmith/tailwindcss-v3-ember) for this demo.
