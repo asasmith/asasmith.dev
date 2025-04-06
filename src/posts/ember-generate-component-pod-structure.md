@@ -1,0 +1,124 @@
+---
+title: How to use ember-cli to generate components using pod structure
+tags: ["javascript", "ember js", "ember-cli"]
+date: "12/2/2020"
+---
+
+The answer to the question above is `ember generate component component-name --pods --no-path`
+
+Maybe I should back up a bit.
+
+I've been working on an ember project full time for about a year now. I definitely prefer the _pods_ style file layout to the _classic_ style.
+
+If you're unfamiliar, _classic_ style file structure looks like this:
+
+```
+app/
+|-- components/
+    |-- tags.js
+    |-- tags.hbs
+|-- controllers/
+    |-- post.js
+|-- models/
+    |-- post.js
+|-- routes/
+    |-- post.js
+|-- templates/
+    |-- post.js
+|-- app.js
+|-- index.html
+|-- router.js
+```
+
+while _pods_ looks like this:
+
+```
+app/
+|-- components/
+    |-- tags.js
+    |-- tags.hbs
+|-- post/
+    |--controller.js
+    |--route.js
+    |--template.js
+|-- app.js
+|-- index.html
+|-- router.js
+```
+
+The _pod_ structure organizes the file system by feature instead of by entity type which I think is much easier to reason about and navigate.
+
+You can use the `ember-cli` to scaffold out files for: 
+* routes
+* controllers
+* templates
+* ember-data files 
+
+The command `ember generate entity-type feature-name` would scaffold out the correct file in the correct directory. If you want to use the _pod_ structure you have to pass the `--pods` option to the `ember generate` command.
+
+`ember generate route feature-name` would generate a new `route.js` file inside the `feature-name` directory. If the directory didn't exist it would be created. This command will also generate a test file at `tests/unit/feature-name/route-test.js` 
+
+You can also update the `.ember-cli` config file like so
+```json
+// .ember-cli
+{
+    "usePods": true
+}
+```
+If you try to pass the `--pods` arg with a `"usePods": true` config ember-cli will throw a warning that using both is deprecated. The rest of my examples will use the `--pods` flag.
+
+The problem I had was trying to create a component but I didn't want the `component.js` file or its `template.hbs` file to be generated inside of a `/components` directory. Maybe this is a bad idea. If it is I'm sure the internet will tell me.
+
+The `--path` option accepts a string as its argument. You can use it to pass a file path. The file path passed must be relative to the `/app` directory.
+
+```
+app/
+|-- post/
+    |-- controller.js
+    |-- route.js
+    |-- template.js
+|-- app.js
+|-- index.html
+|-- router.js
+```
+If you want to create an `author-info` component inside our post directory the `ember-cli` command would be
+
+`ember g component author-info --pods --path="post"`
+```
+app/
+|-- post/
+    |-- author-info/
+        |-- component.js
+        |-- template.hbs
+    |-- controller.js
+    |-- route.js
+    |-- template.js
+|-- app.js
+|-- index.html
+|-- router.js
+```
+
+But what if I want to create a component at the same level as `/post`?
+
+`ember generate component my-component --pods --path=""`
+
+Just pass an empty string as the argument. That creates the file structure below.
+```
+app/
+|-- my-component/
+    |-- component.js
+    |-- template.js
+|-- post/
+    |-- author-info/
+        |-- component.js
+        |-- template.hbs
+    |-- controller.js
+    |-- route.js
+    |-- template.js
+|-- app.js
+|-- index.html
+|-- router.js
+```
+There's also an alias for `--path=""`. It's `--no-path`
+
+`ember generate component my-component --pods --no-path`
