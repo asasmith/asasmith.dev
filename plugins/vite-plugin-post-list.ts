@@ -44,15 +44,13 @@ export function vitePluginPostList(): Plugin {
                     const { date, title } = frontMatter as FrontMatter;
                     const data = {
                         path: file.split('.')[0],
-                        title: title,
-                        date: date,
+                        title,
+                        date,
                     };
 
                     postData.push(data);
                 }
             }
-
-            console.log(postData);
 
             try {
                 await writeFile(
