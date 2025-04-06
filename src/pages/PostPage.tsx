@@ -24,14 +24,13 @@ export function PostPage() {
         }
 
         fetchPostData(slug);
-        setMetadata(metadata);
     }, [slug]);
 
     return (
-        <>
+        <div className="prose bg-white p-24 shadow-xl rounded-2xl max-w-none">
             <Link to="/">home</Link>
-            <h1>{metadata?.title}</h1>
+            <h1 className="text-blue">{metadata?.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: html || 'Loading...' }} />
-        </>
+        </div>
     );
 }

@@ -1,32 +1,46 @@
+import { useEffect, useState } from 'react';
 import './App.css';
-// import { PostPage } from './pages/PostPage';
-
 import { Link } from 'react-router-dom';
-// import { ReactComponent as PostContent } from './posts/ember-generate-component-pod-structure.md';
-// import './posts/test-post.md';
-
-// const postFiles = import.meta.glob('./posts/*.md', {
-//     eager: true,
-//     query: 'raw',
-// });
-// console.log(postFiles);
-
-// const posts = Object.entries(postFiles).map(([path, post]) => {
-//     const { metadata, default: content } = post as any;
-
-//     console.log(metadata);
-//     return path;
-// });
 
 function App() {
-    return (
-        <>
-            <h1>hi</h1>
-            <Link to="/posts/test-post">test-post</Link>
-            <Link to="/posts/ember-generate-component-pod-structure">ember generate</Link>
-            <Link to="/posts/tailwindcss-v3-emberjs-setup">tailwind</Link>
-        </>
-    );
+    const [posts, setPosts] = useState();
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch('/posts.json');
+            const data = await response.json();
+
+            const sortedPosts = data.toSorted((a, b) => Date.parse(b.date) - Date.parse(a.date))
+
+            // const sortedPosts = data.toSorted((a, b) => {
+            //     const dateA = new Date(a.date);
+            //     const dateB = new Date(b.date);
+
+            //     console.log(dateA > dateB);
+
+            //     if (dateA > dateB) {
+            //         return a - b;
+            //     } else {
+            //         return b - a;
+            //     }
+            // });
+
+            setPosts(sortedPosts);
+        }
+
+        fetchData();
+    }, []);
+
+    if (!posts) return <h1>no posts found</h1>;
+
+    const postLinks = posts.map((post) => {
+        return (
+            <Link to={`/posts/${post.path}`} key={post.path}>
+                {post.title}
+            </Link>
+        );
+    });
+
+    return <ul className="flex flex-col">{postLinks}</ul>;
 }
 
 export default App;
