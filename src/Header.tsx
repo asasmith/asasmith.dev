@@ -9,19 +9,19 @@ import twitchIcon from './assets/twitch-icon.svg';
 
 const navItems = [
     {
-        link: 'https://github.com/asasmith',
+        href: 'https://github.com/asasmith',
         icon: ghIcon,
     },
     {
-        link: 'https://www.linkedin.com/in/asa-smith-78760a56/',
+        href: 'https://www.linkedin.com/in/asa-smith-78760a56/',
         icon: liIcon,
     },
     {
-        link: 'https://www.twitch.tv/average_dev_asa',
+        href: 'https://www.twitch.tv/average_dev_asa',
         icon: twitchIcon,
     },
     {
-        link: 'https://resume.asasmith.dev',
+        href: 'https://resume.asasmith.dev',
         icon: resumeIcon,
     },
 ];
@@ -34,9 +34,10 @@ export const Header = () => {
             </Link>
             <nav className="flex items-center">
                 {navItems.map((item) => {
+                    const { href, icon } = item;
                     return (
-                        <a href={item.link} className="w-12 ml-8">
-                            <img src={item.icon} />
+                        <a href={href} className="w-12 ml-8" key={href}>
+                            <img src={icon} />
                         </a>
                     );
                 })}
