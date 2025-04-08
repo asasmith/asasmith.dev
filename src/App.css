@@ -7,6 +7,11 @@
     --color-red: var(--red);
     --color-black: var(--black);
     --color-yellow: var(--yellow);
+    --color-asparagus: var(--asparagus);
+
+    --font-heading: var(--font-heading-alt);
+    --font-heading-alt: var(--font-heading-alt);
+    /* --default-mono-font-family: var(--font-code); */
 }
 
 #root {

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Mono+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 :root {
     --blue: #4682B4;
     --white: #FDFFFC;
@@ -5,13 +7,18 @@
     --black: #0D1B1E;
     --yellow: #F1D302;
     --asparagus: #72A276;
-    --yellowGreen: #84C318;
-    --calPolyGreen: #2A4D14;
-    --darkGreen: #273C2C;
+    --yellow-green: #84C318;
+    --calPoly-green: #2A4D14;
+    --dark-green: #273C2C;
     --bg-dots: var(--blue);
     --bg-main: var(--white);
+    --font-heading-alt: "Rubik";
+    --font-heading: "Rubik Mono One", sans-serif;
+    --font-body: "Lato", sans-serif;
+    --font-code: "Roboto Mono";
 
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
+    font-family: var(--font-body);
     line-height: 1.5;
     font-weight: 400;
 
@@ -38,10 +45,15 @@ body {
     min-height: 100vh;
 }
 
-h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
+h1, h2, h3 {
+    font-family: var(--font-heading-alt);
+    /* font-family: var(--font-heading); */
 }
+
+/* h1 { */
+/*     font-size: 3.2em; */
+/*     line-height: 1.1; */
+/* } */
 
 button {
     border-radius: 8px;

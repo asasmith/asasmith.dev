@@ -30,7 +30,7 @@ export function PostPage() {
         <div className="prose bg-white p-24 shadow-xl rounded-2xl max-w-none">
             <Link to="/">home</Link>
             <h1 className="text-blue">{metadata?.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: html || 'Loading...' }} />
+            <div dangerouslySetInnerHTML={{ __html: html || 'Loading...' }} className="prose-headings:text-black prose-body:text-black prose-pre:bg-black prose-pre:text-white" />
         </div>
     );
 }

@@ -24,7 +24,7 @@ Even though this project is relatively simple I want to be mindful of creating a
 
 One of the requirements is to not use the AWS console to create any of the necessary resources. I have completed a Frontend Masters course that used AWS CDK (cloud deployment kit) with GO so I already had some exposure to the tool. I chose to use typescript for this project. AWS SAM (serverless application model) templates are another route you could go but since I've never used these before I decided to not use them here. Documentation for CDK can be found [here](https://docs.aws.amazon.com/cdk/v2/guide/home.html) along with a guide for install/setup [here](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html). 
 CDK, as I understand it so far, allows you to write code to define different aws resources. Initializing a project is simple. Just run the following commands in your terminal:
-```
+```bash
 // create a new empty directory for the project
 mkdir cloud-resume-infra && cd cloud-resume-infra 
 
@@ -35,7 +35,7 @@ A CDK app is composed of several differnt units. The smallest units are construc
 
 The first thing I did was create my `S3Stack`. All I've done is create an s3 bucket to store my static website files. 
 
-```
+```javascript
 import * as cdk from "aws-cdk-lib";
 import { Construct } from "constructs";
 import * as s3 from "aws-cdk-lib/aws-s3";
@@ -54,7 +54,7 @@ export class S3Stack extends cdk.Stack {
 ```
 
 Then I've updated the `bin/cloud-resume-infra.ts` file to the following:
-```
+```javascript
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
