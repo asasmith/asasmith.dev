@@ -1,6 +1,11 @@
+import { JSX } from 'react';
 import { Header } from '../Header';
 
-export const RootLayout = ({ children }) => {
+interface RootLayoutProps {
+    children: JSX.Element
+}
+
+export const RootLayout = ({ children }: RootLayoutProps) => {
     return (
         <>
             <Header />
