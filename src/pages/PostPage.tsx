@@ -4,6 +4,7 @@ import { loadPost } from '../posts/index';
 
 interface Metadata {
     title: string;
+    subtitle?: string;
     date: string;
     tags?: string[];
 }
@@ -20,16 +21,22 @@ export function PostPage() {
             const { html, metadata } = await loadPost(slug);
 
             setHtml(html);
-            setMetadata(metadata)
+            setMetadata(metadata);
         }
 
         fetchPostData(slug);
     }, [slug]);
 
     return (
-        <div className="prose bg-white p-24 shadow-xl rounded-2xl max-w-none">
+        <div className="prose m-auto max-w-[95%] rounded-2xl bg-white shadow-xl lg:max-w-none lg:p-24">
             <h1 className="text-blue">{metadata?.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: html || 'Loading...' }} className="prose-headings:text-black prose-body:text-black prose-pre:bg-black prose-pre:text-white" />
+            {metadata?.subtitle && (
+                <h2 className="text-blue">{metadata?.subtitle}</h2>
+            )}
+            <div
+                dangerouslySetInnerHTML={{ __html: html || 'Loading...' }}
+                className="prose-headings:text-black prose-body:text-black prose-pre:bg-black prose-pre:text-white"
+            />
         </div>
     );
 }
