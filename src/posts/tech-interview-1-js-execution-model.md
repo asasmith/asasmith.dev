@@ -185,15 +185,6 @@ now see `timeout` logged.
 - The tasks in the `Microtask Queue` will be executed before the event loop
   moves to the `Task Queue`.
 
-## Further Reading
-
-- [MDN JavaScript execution model](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Execution_model)
-- [MDN In Depth: Microtasks and the JavaScript runtime environment](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth)
-- [JavaScript Visualizer 9000](https://www.jsv9000.app/?code=Y29uc29sZS5sb2coJ3N0YXJ0JykKCnNldFRpbWVvdXQoZnVuY3Rpb24gdGltb3V0RnVuYygpIHsKICBjb25zb2xlLmxvZygndGltZW91dCcpCn0sIDApCgpQcm9taXNlLnJlc29sdmUoKS50aGVuKGZ1bmN0aW9uIGZpcnN0UHJvbWlzZUZ1bmMoKSB7CiAgY29uc29sZS5sb2coJ3Byb21pc2UgMScpCn0pCgpmdW5jdGlvbiB0ZXN0KCkgewogIGNvbnNvbGUubG9nKCdhc3luYyBzdGFydCcpCiAgcmV0dXJuIFByb21pc2UucmVzb2x2ZSgpLnRoZW4oZnVuY3Rpb24gc2Vjb25kUHJvbWlzZUZ1bmMoKSB7CiAgICBjb25zb2xlLmxvZygnYXN5bmMgZW5kJykgIAogIH0pCn0KCnRlc3QoKTsKCmNvbnNvbGUubG9nKCdlbmQnKQ%3D%3D)
-  (There seems to be an issue with the `await` keyword in the JavaScript)
-  visualizer so I've rewritten that code using `Promise`. I've also added a
-  `log` function to help with the visualization)
-
 This question reminded me how important it is to understand not just what
 JavaScript does, but when it does it. Before this technical interview I would've
 said I had a good mental model of how async code works but realizing how the
@@ -202,3 +193,12 @@ I’ve internalized the way the event loop processes Promises, async/await, and
 setTimeout/setInterval, I’ll be more confident when questions like this come up.
 
 Next up: a question I actually nailed and how I approached it.
+
+## Further Reading
+
+- [MDN JavaScript execution model](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Execution_model)
+- [MDN In Depth: Microtasks and the JavaScript runtime environment](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth)
+- [JavaScript Visualizer 9000](https://www.jsv9000.app/?code=Y29uc29sZS5sb2coJ3N0YXJ0JykKCnNldFRpbWVvdXQoZnVuY3Rpb24gdGltb3V0RnVuYygpIHsKICBjb25zb2xlLmxvZygndGltZW91dCcpCn0sIDApCgpQcm9taXNlLnJlc29sdmUoKS50aGVuKGZ1bmN0aW9uIGZpcnN0UHJvbWlzZUZ1bmMoKSB7CiAgY29uc29sZS5sb2coJ3Byb21pc2UgMScpCn0pCgpmdW5jdGlvbiB0ZXN0KCkgewogIGNvbnNvbGUubG9nKCdhc3luYyBzdGFydCcpCiAgcmV0dXJuIFByb21pc2UucmVzb2x2ZSgpLnRoZW4oZnVuY3Rpb24gc2Vjb25kUHJvbWlzZUZ1bmMoKSB7CiAgICBjb25zb2xlLmxvZygnYXN5bmMgZW5kJykgIAogIH0pCn0KCnRlc3QoKTsKCmNvbnNvbGUubG9nKCdlbmQnKQ%3D%3D)
+  (There seems to be an issue with the `await` keyword in the JavaScript)
+  visualizer so I've rewritten that code using `Promise`. I've also added a
+  `log` function to help with the visualization)
