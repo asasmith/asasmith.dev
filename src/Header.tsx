@@ -28,15 +28,15 @@ const navItems = [
 
 export const Header = () => {
     return (
-        <header className="fixed top-0 right-0 left-0 flex items-center justify-between bg-white p-8 shadow-md">
-            <Link to="/" className="w-60">
+        <header className="fixed top-0 right-0 left-0 flex flex-col md:flex-row items-center justify-between gap-8 bg-white p-8 shadow-md">
+            <Link to="/" className="">
                 <LogoFull />
             </Link>
-            <nav className="flex items-center">
+            <nav className="flex items-center justify-between w-full md:w-1/3 lg:w-1/4 max-w-80">
                 {navItems.map((item) => {
                     const { href, icon } = item;
                     return (
-                        <a href={href} className="w-12 ml-8" key={href}>
+                        <a href={href} className="w-12" key={href}>
                             <img src={icon} />
                         </a>
                     );

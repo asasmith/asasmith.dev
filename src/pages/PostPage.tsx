@@ -28,7 +28,7 @@ export function PostPage() {
     }, [slug]);
 
     return (
-        <div className="prose m-auto max-w-[95%] rounded-2xl bg-white shadow-xl lg:max-w-none lg:p-24">
+        <div className="prose prose-xl m-auto rounded-2xl bg-white shadow-xl p-4 lg:p-12 md:max-w-11/12 xl:max-w-3xl">
             <h1 className="text-blue">{metadata?.title}</h1>
             {metadata?.subtitle && (
                 <h2 className="text-blue">{metadata?.subtitle}</h2>
