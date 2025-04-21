@@ -5,15 +5,12 @@ date: 4/16/2025
 tags: ['javascript', 'technical interview']
 ---
 
-Technical interviews can be challenging. There are times you'll know ahead of
-time what questions might be asked. Other times you won't know until you're in
-the interview. I don't know about you, but I don't practice interviewing until I
-need to interview, which means I always feel a little rusty. Sometimes I leave
-technical interviews feeling great about my performance, but a lot of the time
-there are questions I wish I could do over. Maybe I blanked on something basic
-(what's the hook for storing state in react) or maybe the question was a topic
-I'm less familiar with. While a poor performance can be disappointing I always
-try to reflect on my answers and look for ways to improve.
+Technical interviews are the adult equivalent of those big test days we had in
+grade school that would determine our academic future. They’re challenging to
+prepare for because sometimes I know ahead of time what the topic will be
+(system design lite) and other times it’s a surprise I learn once I’m in the
+interview (build an infinite scroll in react), and there’s almost always
+something I wish I could do over after I finish.
 
 This series is intended to be part therapeutic, part knowledge share: a place to
 break down questions I wish I could do over. Whether you're prepping for
@@ -197,16 +194,11 @@ now see `timeout` logged.
   visualizer so I've rewritten that code using `Promise`. I've also added a
   `log` function to help with the visualization)
 
-## Closing Thoughts
-
 This question reminded me how important it is to understand not just what
 JavaScript does, but when it does it. Before this technical interview I would've
 said I had a good mental model of how async code works but realizing how the
-microtask and task queues work helped me connect a few lingering gaps in my
-mental model. Now that I’ve internalized the way the event loop processes
-Promises, async/await, and setTimeout/setInterval, I’ll be more confident when
-questions like this come up.
+microtask and task queues work helped me connect a few lingering gaps. Now that
+I’ve internalized the way the event loop processes Promises, async/await, and
+setTimeout/setInterval, I’ll be more confident when questions like this come up.
 
-Next up: not every technical interview leaves me wishing for a do-over. In the
-next post, I’ll break down a question I nailed — a moment where preparation and
-curiosity paid off.
+Next up: a question I actually nailed and how I approached it.
