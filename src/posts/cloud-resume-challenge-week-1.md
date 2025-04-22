@@ -4,7 +4,7 @@ tags: ["aws", "cdk", "typescirpt"]
 date: "3/8/2025"
 ---
 
-Recently I across the (Cloud Resume Challenge)[https://cloudresumechallenge.dev/docs/the-challenge/aws/], and it immediately caught my attention. I’ve been looking for opportunities to get more hands-on experience with AWS, but I haven’t had a structured way to approach it. This challenge seemed like the perfect opportunity—a real-world, end-to-end cloud project that touches multiple AWS services. So, I decided to jump in.
+Recently I across the [Cloud Resume Challenge](https://cloudresumechallenge.dev/docs/the-challenge/aws/), and it immediately caught my attention. I’ve been looking for opportunities to get more hands-on experience with AWS, but I haven’t had a structured way to approach it. This challenge seemed like the perfect opportunity—a real-world, end-to-end cloud project that touches multiple AWS services. So, I decided to jump in.
 
 This post is a brain dump of why I’m doing this, what I hope to get out of it, and my progress so far.
 
