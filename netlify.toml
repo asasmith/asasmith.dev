@@ -1,9 +1,11 @@
 [[redirects]]
 from = "/*"
-to = "/index.html"
-status = 200
+to = "https://asasmith.dev/:splay"
+status = 301
+force = true
+conditions = { Host: ["asasmith.com", "www.asasmith.com"] }
 
 [[redirects]]
-from = "https://asasmith.com"
-to = "https://asasmith.dev"
-status = 301
+from = "/*"
+to = "/index.html"
+status = 200
