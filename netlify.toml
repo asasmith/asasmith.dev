@@ -2,3 +2,7 @@
 from = "/*"
 to = "/index.html"
 status = 200
+
+from = "https://asasmith.com"
+to = "https://asasmith.dev"
+status = 301
