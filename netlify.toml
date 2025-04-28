@@ -1,6 +1,6 @@
 [[redirects]]
 from = "/*"
-to = "https://asasmith.dev/:splay"
+to = "https://asasmith.dev/:splat"
 status = 301
 force = true
 conditions = { Host = ["asasmith.com", "www.asasmith.com"] }
