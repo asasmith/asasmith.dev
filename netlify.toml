@@ -3,7 +3,7 @@ from = "/*"
 to = "https://asasmith.dev/:splay"
 status = 301
 force = true
-conditions = { Host: ["asasmith.com", "www.asasmith.com"] }
+conditions = { Host = ["asasmith.com", "www.asasmith.com"] }
 
 [[redirects]]
 from = "/*"
